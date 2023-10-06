@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row btn-light">
+    <div class="col-md-4">
+        <img src="{% static 'perfil.jpg' %}" alt="" width="350" height="250">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1> I'm <strong> BATMAN </strong></h1>
+        <h3> Lo unico que valio la pena de Flashpoint es que Bruce recibio una carta de su padre </h3>
+        <p> Mi enamorado me termino, trsite pero A.D.Base de datos es primero XD</p>
+        <a class="btn btn-primay btn-lg rounded-0 my-3" href="{% static 'curriculum.pdf' %}" target="_blank">Donwload CV </a>
+    </div>
+</header>
+<div class="row my-4 texte-center">
+    <h1>Mis proyectos </h1>
+    <p> Se lo dedico a mi mami, ella me ayuda mucho :3 </p>
+
+    {% for project in projects %}
+        <div class="col -md-4 p-4">
+            <div class="card card-project"  style="background-color: #8b8a8a;">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+                <img src ="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+
+                {% if project.url %}
+                <a href=" {{project.url}}" class="btn btn-light rounded-0 btn-sm">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+</div>
+
+
